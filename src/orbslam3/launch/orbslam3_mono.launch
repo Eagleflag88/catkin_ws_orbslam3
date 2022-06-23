@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="orbslam3"  type="mono_ros"  name="mono_ros"  args="$(find orbslam3)/lib/Vocabulary/ORBvoc.txt $(find orbslam3)/config/svf_slam/svf_mono_slam_config.yaml" output="screen"></node>
+    <!-- <node pkg="rosbag" type="play" name="player" output="screen" args="/work/catkin_ws_ndt/data/kitti_test/kitti_2011_10_03_drive_0027_synced.bag"/> -->
+    <!-- <node pkg="rosbag" type="play" name="player" output="screen" args="/home/data/zmtools/zmdata0121/2022-01-21-10-20-49.bag"/> -->
+    <!-- <node pkg="rosbag" type="play" name="player" output="screen" args="/home/data/zmtools/zmdata0510/2022-05-10-19-56-30.bag"/> -->
+    <node pkg="rosbag" type="play" name="player" output="screen" args="/home/data/zmtools/zmdata0518/2022-05-18-16-49-07.bag"/>
+
+</launch>
