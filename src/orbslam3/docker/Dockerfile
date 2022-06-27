@@ -97,6 +97,7 @@ RUN apt update && apt -y upgrade
 RUN apt -y install ros-melodic-pcl-ros
 RUN apt -y install ros-melodic-image-view
 RUN apt -y install doxygen doxygen-doc doxygen-gui graphviz
+RUN apt -y install gdb valgrind
 
 
 
