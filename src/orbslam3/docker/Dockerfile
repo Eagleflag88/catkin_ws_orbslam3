@@ -6,15 +6,15 @@ RUN apt-get clean
 RUN apt-get -y update --fix-missing && \
     apt-get -y upgrade
 
-    #-> Install general usage dependencies
+#-> Install general usage dependencies
 RUN echo "Installing general usage dependencies ..." && \
     apt-get install -y apt-file && \
     apt-file update && \
     apt-get install -y nano \
     pkg-config
 
-    #-> Install OpenCV dependencies
-    #-? From : http://techawarey.com/programming/install-opencv-c-c-in-ubuntu-18-04-lts-step-by-step-guide/
+#-> Install OpenCV dependencies
+#-? From : http://techawarey.com/programming/install-opencv-c-c-in-ubuntu-18-04-lts-step-by-step-guide/
 RUN echo "Installing OpenCV dependencies ..." && \
     apt-get install -y\
     libgtk2.0-dev \
@@ -23,8 +23,8 @@ RUN echo "Installing OpenCV dependencies ..." && \
     libswscale-dev \
     software-properties-common
 
-    #-> Install Pangolin dependencies
-    #-? From : https://cdmana.com/2021/02/20210204202321078t.html
+#-> Install Pangolin dependencies
+#-? From : https://cdmana.com/2021/02/20210204202321078t.html
 RUN echo "Installing Pangolin dependencies ..." && \
     apt-get install -y \
     libglew-dev \
@@ -35,15 +35,15 @@ RUN echo "Installing Pangolin dependencies ..." && \
     libavutil-dev \
     libpng-dev
 
-    #-> Install Eigen 3 last version
-    #-? Needs to be installed BEFORE Pangolin as it also needs Eigen
-    #-> Linear algebra library
+#-> Install Eigen 3 last version
+#-? Needs to be installed BEFORE Pangolin as it also needs Eigen
+#-> Linear algebra library
 RUN echo "Installing Eigen 3 last version ..." && \
     apt-get install -y libeigen3-dev
-   
-    #-> Install Pangolin last version
-    #-? 3D Vizualisation tool
-    #-? From : https://cdmana.com/2021/02/20210204202321078t.html
+
+#-> Install Pangolin last version
+#-? 3D Vizualisation tool
+#-? From : https://cdmana.com/2021/02/20210204202321078t.html
 RUN echo "Installing Pangolin last version ..." && \
     cd /home/ && \
     git clone https://github.com/stevenlovegrove/Pangolin.git Pangolin
@@ -99,14 +99,24 @@ RUN apt -y install ros-melodic-image-view
 RUN apt -y install doxygen doxygen-doc doxygen-gui graphviz
 RUN apt -y install gdb valgrind
 
+# pip
+RUN apt update && apt -y upgrade
+RUN apt -y install python3-pip
+RUN pip3 install pip -U
+RUN pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip3 install matplotlib opencv-python
+RUN apt -y install python3-tk
 
 
 
 
 
 
-    
 
 
 
-    
+
+
+
+
+
